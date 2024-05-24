@@ -6,6 +6,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.AbstractApplicationContext;
 
 import com.apex.BasicSpringProject.bean.Person;
+import com.apex.BasicSpringProject.bean.PersonConstructorInjection;
+import com.apex.BasicSpringProject.bean.PersonFieldInjection;
+import com.apex.BasicSpringProject.bean.PersonSetterInjection;
 
 /**
  * Hello world!
@@ -17,14 +20,29 @@ public class App
     {
     	ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ProjectConfig.class);
     	
-    	Person person = (Person) applicationContext.getBean("person");
+//    	Person person = (Person) applicationContext.getBean("person");
+//    	
+//    	Person person1 = applicationContext.getBean(Person.class);
+//    	
+//    	person.setName("John");
+//    	System.out.println(person);
+//    	
+//    	System.out.println(person1);
     	
-    	Person person1 = applicationContext.getBean(Person.class);
+    	PersonConstructorInjection constructorInjection = (PersonConstructorInjection) applicationContext.getBean("personConInj");
+    	System.out.println("constructorInjection Person Name : " + constructorInjection.getName());
+    	System.out.println("constructorInjection Person Age : " + constructorInjection.getAge());
+    	System.out.println("constructorInjection Person City : " + constructorInjection.getCity());
     	
-    	person.setName("John");
-    	System.out.println(person);
+    	PersonFieldInjection personFieldInjection = applicationContext.getBean(PersonFieldInjection.class);
+    	System.out.println("PersonFieldInjection Person Name : " + personFieldInjection.getName());
+    	System.out.println("PersonFieldInjection Person Age : " + personFieldInjection.getAge());
+    	System.out.println("PersonFieldInjection Person City : " + personFieldInjection.getCity());
     	
-    	System.out.println(person1);
+    	PersonSetterInjection personSetterInjection = applicationContext.getBean(PersonSetterInjection.class);
+    	System.out.println("PersonSetterInjection Person Name : " + personSetterInjection.getName());
+    	System.out.println("PersonSetterInjection Person Age : " + personSetterInjection.getAge());
+    	System.out.println("PersonSetterInjection Person City : " + personSetterInjection.getCity());
     	
 //    	ConfigurableApplicationContext configurableApplicationContext = (ConfigurableApplicationContext) applicationContext;
 //    	configurableApplicationContext.close();
