@@ -9,7 +9,7 @@
 <body>
 <h1>
 <%
-out.println(request.getAttribute("message"));
+out.println(request.getAttribute("id"));
 %>
 </h1>
 </body>

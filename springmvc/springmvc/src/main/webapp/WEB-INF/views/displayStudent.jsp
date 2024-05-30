@@ -7,10 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>
 <%
-out.println(request.getAttribute("message"));
+out.println(request.getAttribute("student"));
 %>
-</h1>
 </body>
 </html>
